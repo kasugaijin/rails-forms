@@ -1,15 +1,15 @@
-<%= form_with model: @user do |form| %>
+ <%= form_with model: @user, url: user_path, method: 'patch' do |form| %>
   <%= form.label :username, 'Username:' %>
-  <%= form.text_field :username, value: 'username' %><br>
+  <%= form.text_field :username %><br>
   <%= form.label :email, 'Email:' %>
-  <%= form.email_field :email, placeholder: 'yourname@email.com' %><br>
+  <%= form.email_field :email %><br>
   <%= form.label :password, 'Password:' %>
-  <%= form.password_field :password, placeholder: 'At least 6 characters' %><br>
+  <%= form.password_field :password %><br>
   <%= form.submit 'Submit' %>
 
-  <% if @user.errors.any? %>
+<% if @user.errors.any? %>
     <div id="error_explanation">
-      <h4><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h4>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -20,11 +20,13 @@
 
 <% end %>
 
+
+
 <%# form_with helper creates HTML for you. You need to set Turbo to false else
 when you submit the form you will not get a reload of the page.
 This form uses the for_with helper with HTML tag helpers. %>
 
-<%#<%= form_with(url: '/users', method: 'post', data: { turbo: false } ) do %>
+<%#<%= form_with(url: '/users', method: 'patch', data: { turbo: false } ) do %>
   <%#<%= label_tag(:username, 'Username:') %>
   <%#<%= text_field_tag(:username) %>
   <%#<%= label_tag(:email, 'Email:') %>
@@ -43,7 +45,7 @@ This form uses the for_with helper with HTML tag helpers. %>
   username: params[:username], email: params[:email], password: params[:password] %>
  
  <%# This form does not have an authentication token %>
- <%# <form accept-charset='UTF-8' action="/users" method="post">
+ <%# <form accept-charset='UTF-8' action="/users" method="patch">
   <label for="username">Username:</label>
   <input type="text" id="username" name="user[username]"><br><br>
   <label for="email">Email:</label>

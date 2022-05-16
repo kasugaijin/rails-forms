@@ -17,6 +17,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      redirect_to new_user_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   # because we cannot pass in a hash directly to #create for security reasons we pass in this private method
