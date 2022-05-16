@@ -7,4 +7,4 @@ This is the Forms project from the Ruby on Rails path of The Odin Project. This 
 -  Creating views for new and edit with forms. The forms were constructed using HTML, form_with and tags, and form_with an object. This was good practice in understanding how forms are constructed and what the attributes are doing e.g., URL, method, and name.
 
 
-Screenshot: !(/Screenshot.png.png?raw=true "")
+Screenshot: ![screenshot](/Screenshot.png?raw=true "")
