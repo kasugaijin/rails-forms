@@ -1,10 +1,27 @@
+<%# form_with helper creates HTML for you. You need to set Turbo to false else
+when you submit the form you will not get a reload of the page.
+This form uses the for_with helper with HTML tag helpers. %>
+
+<%= form_with(url: '/users', method: 'post', data: { turbo: false } ) do %>
+  <%= label_tag(:username, 'Username:') %>
+  <%= text_field_tag(:username) %><br>
+  <%= label_tag(:email, 'Email:') %>
+  <%= email_field_tag(:email) %><br>
+  <%= label_tag(:password, 'Password:') %>
+  <%= password_field_tag(:password) %><br>
+  <%= submit_tag('Submit') %>
+<% end %>
+ 
+ 
+ 
  <%# the 'name' attribute is what gets passed into the params hash as a key 
   However, using user[name] forces the form to provide a nested hash of user attributes
   for User e.g., params[User] = {'usename' => 'xyz, 'email' => 'xyz'...} which
   is easier to pass into the User#Create method than 
   username: params[:username], email: params[:email], password: params[:password] %>
  
- <form accept-charset='UTF-8' action="/users" method="post">
+ <%# This form does not have an authentication token %>
+ <%# <form accept-charset='UTF-8' action="/users" method="post">
   <label for="username">Username:</label>
   <input type="text" id="username" name="user[username]"><br><br>
   <label for="email">Email:</label>
@@ -12,4 +29,4 @@
   <label for="password">Password:</label>
   <input type="password" id="password" name="user[password]"><br><br>
   <input type="submit" value="Submit">
-</form> 
+</form>  %>
