@@ -1,16 +1,26 @@
+<%= form_with model: @user do |form| %>
+  <%= form.label :username, 'Username:' %>
+  <%= form.text_field :username, value: 'username' %><br>
+  <%= form.label :email, 'Email:' %>
+  <%= form.email_field :email, placeholder: 'yourname@email.com' %><br>
+  <%= form.label :password, 'Password:' %>
+  <%= form.password_field :password, placeholder: 'At least 6 characters' %><br>
+  <%= form.submit 'Submit' %>
+<% end %>
+
 <%# form_with helper creates HTML for you. You need to set Turbo to false else
 when you submit the form you will not get a reload of the page.
 This form uses the for_with helper with HTML tag helpers. %>
 
-<%= form_with(url: '/users', method: 'post', data: { turbo: false } ) do %>
-  <%= label_tag(:username, 'Username:') %>
-  <%= text_field_tag(:username) %><br>
-  <%= label_tag(:email, 'Email:') %>
-  <%= email_field_tag(:email) %><br>
-  <%= label_tag(:password, 'Password:') %>
-  <%= password_field_tag(:password) %><br>
-  <%= submit_tag('Submit') %>
-<% end %>
+<%#<%= form_with(url: '/users', method: 'post', data: { turbo: false } ) do %>
+  <%#<%= label_tag(:username, 'Username:') %>
+  <%#<%= text_field_tag(:username) %>
+  <%#<%= label_tag(:email, 'Email:') %>
+  <%#<%= email_field_tag(:email) %>
+  <%#<%= label_tag(:password, 'Password:') %>
+  <%#<%= password_field_tag(:password) %>
+  <%#<%= submit_tag('Submit') %>
+<%# <% end %>
  
  
  
